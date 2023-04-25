@@ -8,5 +8,5 @@
   ],
   "python.testing.pytestEnabled": false,
   "python.testing.unittestEnabled": true,
-  "conventionalCommits.scopes": ["installers"]
+  "conventionalCommits.scopes": ["installers", "cli"]
 }

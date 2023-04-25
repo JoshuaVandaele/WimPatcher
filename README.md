@@ -40,6 +40,16 @@ python wimpatcher.py [--config /path/to/config.toml] --usb "E:"
 
 This will flash the custom image onto the USB drive located at "E:". Warning: This will erase all data on the USB drive.
 
+### Listing available Windows editions
+
+To list available Windows editions in an ISO or WIM file, run the following command:
+
+```sh
+python wimpatcher.py --list-editions "/path/to/windows.iso"
+```
+
+This will display a list of available Windows editions in the specified ISO or WIM file.
+
 ## List of supported software
 
 - None yet
@@ -50,6 +60,7 @@ This will flash the custom image onto the USB drive located at "E:". Warning: Th
 - [x] Create a layout for the configuration file
 - [x] Use said configuration file
 - [ ] More descriptive errors
+  - [ ] Error on match in subprocess stdout
 - [x] Unmount/Mount
   - [x] ISO files
   - [x] WIM files

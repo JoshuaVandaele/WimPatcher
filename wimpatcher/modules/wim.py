@@ -149,6 +149,43 @@ def list_wim_indexes(wim_file: str) -> list[dict[str, str]]:
     ]
 
 
+def optimize_wim_file(wim_file: str) -> None:
+    old_wim = os.path.join(
+        os.path.dirname(wim_file), f"{os.path.basename(wim_file)}.old"
+    )
+    os.rename(wim_file, old_wim)
+    # Exports the index to a new wim file,
+    # in which the [DELETED] folder will be gone and the size reduced.
+    # (After every dism command the deleted/changed files are saved in the wim inside [DELETED])
+    subprocess.run(
+        [
+            "DISM",
+            "/Export-Image",
+            f"/SourceImageFile:{old_wim}",
+            "/SourceIndex:1",
+            f"/DestinationImageFile:{wim_file}",
+            "/Compress:max",
+            "/Checkintegrity",
+        ],
+        stdout=subprocess.PIPE,
+    )
+
+    os.remove(old_wim)
+
+
+def optimize_wim_image(wim_mount_path: str):
+    subprocess.run(
+        [
+            "DISM",
+            f"/Image:{wim_mount_path}",
+            "/Cleanup-Image",
+            "/StartComponentCleanup",
+            "/ResetBase",
+        ],
+        # stdout=subprocess.PIPE,
+    )
+
+
 def delete_wim_index(wim_file, index):
     """
     Deletes an index from a Windows Imaging Format (WIM) file.
