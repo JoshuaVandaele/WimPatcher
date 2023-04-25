@@ -1,9 +1,17 @@
-# General settings for Windows 11 installation
+# General settings for the Windows 11 installation
 [general]
 # Specifies the edition of Windows 11 to be installed from the WIM file
 Edition = "Windows 11 Pro"
 # Path to the ISO file containing the Windows 11 installer
-iso = "./Win11.iso"
+iso = "D:\\WimPatcher\\wimpatcher\\Win11.iso"
+# List of drivers to install
+drivers = [
+    "C:\\drivers\\mydriver1.inf",
+    "C:\\drivers\\mydriver2.inf",
+    "C:\\drivers\\mydriver3.inf",
+]
+# List of Windows Updates to install during the Windows installation process
+updates = ["KB5001330", "KB5001337", "MyUpdateFile.msu"]
 
 # Specifies whether the following software should be installed
 [supported-software]
@@ -19,14 +27,3 @@ installer = "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&l
 # Command-line parameters to customize the installation process.
 # See https://firefox-source-docs.mozilla.org/browser/installer/windows/installer
 parameters = ["/S", "/TaskbarShortcut=true"]
-
-
-# List of drivers to install
-drivers = [
-    "C:\\drivers\\mydriver1.inf",
-    "C:\\drivers\\mydriver2.inf",
-    "C:\\drivers\\mydriver3.inf",
-]
-
-# List of Windows Updates to install during the Windows installation process
-updates = ["KB5001330", "KB5001337", "MyUpdateFile.msu"]

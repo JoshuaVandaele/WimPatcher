@@ -6,8 +6,9 @@ import sys
 import threading
 import winreg
 from enum import StrEnum
-from typing import TextIO
+from typing import Any, TextIO
 
+import tomllib
 import win32api
 import win32security
 
@@ -227,3 +228,17 @@ def add_key_to_run_once_hive(hive_path: str, key_name: str, value: str) -> None:
         )
     finally:
         unload_registry_hive(subkey)
+
+
+def read_toml(path: str) -> dict[str, Any]:
+    """Reads a toml file given its path, and returns its contents.
+
+    Args:
+        path (str): Path to the toml file.
+
+    Returns:
+        dict[str, Any]: Contents of the toml file.
+    """
+    with open(path, "rb") as f:
+        data = tomllib.load(f)
+    return data

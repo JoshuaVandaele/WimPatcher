@@ -107,12 +107,12 @@ def extract_iso(iso_file: str, extract_location: str) -> None:
     Returns:
         None
     """
-    print("Mounting the ISO...")
+    print(f'Mounting iso "{iso_file}"...')
     iso_mount_path: str = mount_iso(iso_file)
 
     try:
         print("Extracting iso file...")
         copy_files(iso_mount_path, extract_location)
     finally:
-        print("Unmounting the ISO...")
+        print(f'Unmounting iso "{iso_file}"...')
         unmount_iso(iso_file)

@@ -6,7 +6,7 @@ WimPatcher is a tool for creating custom Windows ISO images with pre-installed p
 
 ## Getting Started
 
-To use WimPatcher, you'll need to have Python 3.8 or later installed on your system. You can download Python from the official website.
+To use WimPatcher, you'll need to have Python 3.11 or later installed on your system. You can download Python from the official website.
 
 Once you have Python installed, you can install the required dependencies by running the following command in a terminal:
 
@@ -46,9 +46,10 @@ This will flash the custom image onto the USB drive located at "E:". Warning: Th
 
 ## Current state of the project
 
-- [ ] Accept command-line arguments
+- [x] Accept command-line arguments
 - [x] Create a layout for the configuration file
-- [ ] Use said configuration file
+- [x] Use said configuration file
+- [ ] More descriptive errors
 - [x] Unmount/Mount
   - [x] ISO files
   - [x] WIM files

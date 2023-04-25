@@ -228,3 +228,6 @@ $RECYCLE.BIN/
 # Registry hive
 *.blf
 *.regtrans*
+
+# Config files
+config.toml
