@@ -98,25 +98,29 @@ def main():
     )
 
     parser.add_argument(
+        "-c",
         "--config",
         type=str,
-        help="Path to the configuration file in TOML format. Default: config.toml",
+        help="Path to configuration file. Default: config.toml",
         default="config.toml",
     )
     parser.add_argument(
+        "-o",
         "--output",
         type=str,
         help="Path to the output ISO file. Required if '--usb' flag is not provided.",
     )
     parser.add_argument(
+        "-u",
         "--usb",
         type=str,
         help="Path to the USB drive to flash the custom image onto. Warning: This will erase all data on the USB drive. Required if '--output' flag is not provided.",
     )
     parser.add_argument(
+        "-l",
         "--list-editions",
         type=str,
-        help="Path to the ISO or WIM file to list available Windows editions for your config.toml.",
+        help="Displays Windows editions available from a provided WIM or ISO file.",
     )
 
     args = parser.parse_args()
