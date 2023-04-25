@@ -1,29 +1,134 @@
+# Every line that is commented means that the config is not yet implemented.
+
+
 # General settings for the Windows 11 installation
 [general]
 # Specifies the edition of Windows 11 to be installed from the WIM file
 Edition = "Windows 11 Pro"
+
 # Path to the ISO file containing the Windows 11 installer
 iso = "D:\\WimPatcher\\wimpatcher\\Win11.iso"
-# List of drivers to install
-drivers = [
-    "C:\\drivers\\mydriver1.inf",
-    "C:\\drivers\\mydriver2.inf",
-    "C:\\drivers\\mydriver3.inf",
-]
-# List of Windows Updates to install during the Windows installation process
-updates = ["KB5001330", "KB5001337", "MyUpdateFile.msu"]
 
-# Specifies whether the following software should be installed
-[supported-software]
-"Dolphin Emulator" = true
-"7zip" = true
-"Discord" = false
-"Discord Canary" = true
+# # List of drivers to install
+# drivers = [
+#     "C:\\drivers\\mydriver1.inf",
+#     "C:\\drivers\\mydriver2.inf",
+#     "C:\\drivers\\mydriver3.inf",
+# ]
 
-# Firefox Web Browser Installation Configuration
-[software.firefox]
-# Download link for the Firefox installer
-installer = "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
-# Command-line parameters to customize the installation process.
-# See https://firefox-source-docs.mozilla.org/browser/installer/windows/installer
-parameters = ["/S", "/TaskbarShortcut=true"]
+# # List of Windows Updates to install during the Windows installation process
+# updates = [
+#     "KB5001330",             # Install an update by name
+#     "MyUpdateFile.msu",      # Install an update using an msu file
+#     "MyOtherUpdateFile.cab", # Install an update using a cab file
+#     "C:\\updates",           # Install updates using a folder containing msu and cab files
+# ]
+
+
+# # Specifies whether the following software should be installed
+# [supported-software]
+# "Dolphin Emulator" = true
+# "7zip" = true
+# "Discord" = false
+# "Discord Canary" = true
+
+
+# # Firefox Web Browser Installation Configuration
+# [software.firefox]
+# # Download link for the Firefox installer
+# installer = "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+# # Command-line parameters to customize the installation process.
+# # See https://firefox-source-docs.mozilla.org/browser/installer/windows/installer
+# parameters = ["/S", "/TaskbarShortcut=true"]
+
+
+# [apps]
+# # Array of app package names to uninstall
+# uninstall = ["Microsoft.YourPhone", "MicrosoftTeams", "Microsoft.OneDriveSync"]
+
+# [apps.SampleApp]
+# # Path to the SampleApp package
+# package_path = "C:\\Downloads\\Package.appxbundle"
+# # Array of dependency package paths (optional)
+# dependency_packages = [
+#     "C:\\Downloads\\Dependency1.appx",
+#     "C:\\Downloads\\Dependency2.appx",
+# ]
+# # Path to the SampleApp license file (optional)
+# license_path = "C:\\downloads\\PackageLicense.xml"
+# # Path to the SampleApp custom data file (optional)
+# custom_data = "C:\\downloads\\CustomDataFile.xml"
+
+
+# [features]
+# Printing-PrintToPDFServices-Features = true
+# VirtualMachinePlatform = true
+# Microsoft-Hyper-V-All = true
+# Microsoft-Windows-Subsystem-Linux = true
+# DirectPlay = false
+
+
+# [settings]
+# # General settings
+
+# # The default wallpaper's file path
+# # Must be an existing image file
+# default_wallpaper = "C:\\Downloads\\background.jpg"
+
+# # The style of the wallpaper
+# # Valid values: "center", "tile", "stretch", "fit", "fill", "span"
+# wallpaper_style = "center"
+
+# # The color scheme for the Windows operating system
+# # Valid values: "dark", "light"
+# windows_color_scheme = "dark"
+
+# # The color scheme for applications
+# # Valid values: "dark", "light", "system" (matches the Windows color scheme)
+# app_color_scheme = "dark"
+
+# # Enable or disable clipboard history
+# # Boolean: true or false
+# enable_clipboard_history = true
+
+# # Taskbar settings
+
+# # Show or hide the taskbar labels
+# # Valid values: "always", "taskbar_full", "never"
+# show_taskbar_labels = "never"
+
+# # Taskbar location
+# # Valid values: "bottom", "top", "left", "right"
+# taskbar_location = "bottom"
+
+# # Taskbar size
+# # Integer (in pixels)
+# taskbar_size = 40
+
+# # File Explorer settings
+
+# # Show or hide file extensions
+# # Boolean: true or false
+# show_file_extensions = true
+
+# # Show or hide hidden files and folders
+# # Boolean: true or false
+# show_hidden_files = false
+
+# # Default view in File Explorer
+# # Valid values: "details", "tiles", "content", "list", "icons"
+# default_file_explorer_view = "details"
+
+# # Start menu settings
+
+# # Show or hide the Start menu full-screen mode
+# # Boolean: true or false
+# start_menu_full_screen = false
+
+# # Show or hide most-used apps in the Start menu
+# # Boolean: true or false
+# show_most_used_apps = true
+
+# # Show or hide recently added apps in the Start menu
+# # Boolean: true or false
+# show_recently_added_apps = true

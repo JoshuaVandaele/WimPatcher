@@ -57,6 +57,12 @@ This will display a list of available Windows editions in the specified ISO or W
 ## Current state of the project
 
 - [x] Accept command-line arguments
+  - [x] output ISO file
+  - [x] output USB drive
+  - [x] Input config file
+  - [x] List available windows editions
+  - [ ] List available windows features
+  - [ ] List available windows updates
 - [x] Create a layout for the configuration file
 - [x] Use said configuration file
 - [ ] More descriptive errors
@@ -70,8 +76,10 @@ This will display a list of available Windows editions in the specified ISO or W
 - [ ] Add support for installing drivers
 - [ ] Add support for installing updates
 - [ ] Add support for installing apps
+- [ ] Add support for uninstalling default apps by package name
 - [ ] Add support for enabling Windows Features
 - [ ] Add support for changing Windows Settings
+  - [ ] Add more tweakable settings in the config toml file
 - [x] Add support for generic software installation
 - [ ] Add support for the following software:
   - Dev tools

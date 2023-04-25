@@ -62,9 +62,26 @@ def patch_wim(wim_file: str):
     print("Mounting WIM file...")
     wim_mount_path = mount_wim(wim_file)
     try:
-        # Do stuff in wim_mount_path here
-        with open(wim_mount_path + "\\test.txt", "w") as file:
-            file.write("this should appear in the wim file")
+        print("Uninstalling unwanted apps...")
+        ...
+
+        print("Installing software...")
+        ...
+
+        print("Installing apps...")
+        ...
+
+        print("Installing drivers...")
+        ...
+
+        print("Installing updates...")
+        ...
+
+        print("Enabling features...")
+        ...
+
+        print("Applying settings...")
+        ...
 
         print("Optimizing WIM image...")
         optimize_wim_image(wim_mount_path)
