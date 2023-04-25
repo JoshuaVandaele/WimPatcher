@@ -40,28 +40,40 @@ class Installer:
 
     def install(self: "Installer"):
         """Install the program at the specified location."""
+        if os.path.isdir(self.installer_file):
+            self._install_from_dir()
+        elif os.path.isfile(self.installer_file):
+            self._install_from_file()
+        else:
+            raise ValueError(f"'{self.installer_file}' is not a file or a folder!")
+
+    def _install_from_dir(self: "Installer"):
+        if os.path.exists(self.install_location):
+            shutil.rmtree(self.install_location)
+        shutil.copytree(self.installer_file, self.install_location)
+
+    def _install_from_file(self: "Installer"):
         if not os.path.exists(self.install_location):
             os.makedirs(self.install_location)
 
-        if os.path.isdir(self.installer_file):
-            if os.path.exists(self.install_location):
-                shutil.rmtree(self.install_location)
-            shutil.copytree(self.installer_file, self.install_location)
-        elif os.path.isfile(self.installer_file):
+        if os.path.isfile(self.installer_file):
             try:
                 # If the file is an archive (ZIP, RAR, etc), extract it at the install location
-                patoolib.extract_archive(
-                    self.installer_file, outdir=self.install_location
-                )
+                self._install_from_archive()
             except patoolib.util.PatoolError:
-                shutil.move(self.installer_file, self.install_location)
-                add_key_to_run_once_hive(
-                    rf"{self.wim_mount_directory}\Windows\System32\config\SOFTWARE",
-                    f"install {self.program_name}",
-                    rf"C:\{self.install_location.removeprefix(self.wim_mount_directory)}",
-                )
-        else:
-            raise ValueError(f"'{self.installer_file}' is not a file or a folder!")
+                # Assume the installer file is an executable, which we will run inside the OS on first logon
+                self._install_from_executable()
+
+    def _install_from_archive(self: "Installer"):
+        patoolib.extract_archive(self.installer_file, outdir=self.install_location)
+
+    def _install_from_executable(self: "Installer"):
+        shutil.move(self.installer_file, self.install_location)
+        add_key_to_run_once_hive(
+            rf"{self.wim_mount_directory}\Windows\System32\config\SOFTWARE",
+            f"install {self.program_name}",
+            rf"C:\{self.install_location.removeprefix(self.wim_mount_directory)}",
+        )
 
     @staticmethod
     def create_shortcut(src: str, dest: str):
