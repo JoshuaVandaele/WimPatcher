@@ -57,6 +57,9 @@ This will flash the custom image onto the USB drive located at "E:". Warning: Th
 - [x] Apply modifications to the WIM file
 - [ ] Add support for installing drivers
 - [ ] Add support for installing updates
+- [ ] Add support for installing apps
+- [ ] Add support for enabling Windows Features
+- [ ] Add support for changing Windows Settings
 - [x] Add support for generic software installation
 - [ ] Add support for the following software:
   - Dev tools
@@ -88,6 +91,8 @@ This will flash the custom image onto the USB drive located at "E:". Warning: Th
     - [ ] Dolphin Emulator
     - [ ] Steam
     - [ ] Krita
+- [ ] Once this is all done: Investigate answer files for extra functionality such as skipping the OOBE and pre-defining settings such as the refreshrate, computer name, etc.
+  - Perhaps let the user provide one, or let the user pick settings in the TOML and generate one for him?
 
 ## Contributing
 
